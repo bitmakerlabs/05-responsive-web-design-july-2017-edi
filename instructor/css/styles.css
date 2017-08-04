@@ -5,6 +5,7 @@
 - When working from a reference, start by:
 	- Identifying the colours.
 	- Identifying the fonts/typefaces.
+
 - Write generic styles, then move on to more complex/specific styles.
 	- Generic styles include:
 		- elements that can be targeted by tag name (eg. 'main')
@@ -13,10 +14,12 @@
 	- Complex/specific styles include:
 		- elements that must be targeted by class (eg. '.post')
 		- elements that must be targeted using a descendant selector.
+
 - When starting to write responsive styles:
 	- Identify the number of layouts.
 	- Identify when the layouts change (eg. the 'breakpoints').
 	- Test your media queries by making an obvious change to the document, and seeing if it's correctly applied.
+
 - Keep in mind:
 	- Preview your CSS in the browser often. Small mistakes can prevent entire stylesheets from being applied.
 	- If you're writing a rule that should only be applied when the screen is a certain size, make sure it's inside a media query!
@@ -46,6 +49,127 @@ body {
 /* -------------------------------------------------- */
 /* BASE STYLES */
 /* -------------------------------------------------- */
-/*
- Write *YOUR* styles here!
-*/
+html {
+	font-family: Georgia, serif;
+
+	/* Make 1rem = 10px */
+	font-size: 62.5%; /* 10px / 16px = 0.625 (62.5%) */
+
+	line-height: 1.5;
+
+	background: #EEE;
+}
+
+h1,
+h2 {
+	font-family: Arial, sans-serif;
+	color: darkslateblue;
+}
+
+a {
+	color: darkslateblue;
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+/* HEADER STYLES */
+header {
+	text-align: center;
+	padding: 2rem 0; /* 20px / 10px = 2rem */
+	background: white;
+}
+
+/* h1 tag */
+.brand {
+	font-size: 2rem; /* 20px / 10px = 2rem */
+	margin: 0;
+}
+
+.brand-supporting {
+	display: none;
+}
+
+/* INTRO STYLES */
+.intro {
+	display: none;
+}
+
+/* FOOTER STYLES */
+footer {
+	background: #222222;
+	padding: 3rem 2rem;
+	color: #999;
+	font-size: 1.5rem; /* 15px / 10px = 1.5rem */
+}
+
+footer p {
+
+}
+
+/* POST STYLES */
+.post {
+	margin-bottom: 4rem; /* 40px / 10px = 4rem */
+	background: white;
+	font-size: 4vw; /* 16px / 400px = 4vw */
+}
+
+.post div {
+	padding: 2rem; /* 20px / 10px = 2rem */
+}
+
+/* post title */
+.post h2 {
+	/* What is the font size of the <h2> when the browser is 400px wide? */
+	font-size: 2em; /* 32px / 16px = 2em */
+}
+
+/* author information */
+.post h3 {
+	/* What is the font size of the <h3> when the browser is 400px wide? */
+	font-size: 0.75em; /* 12px / 16px = 0.75em */
+}
+
+/* -------------------------------------------------- */
+/* RESPONSIVE STYLES */
+/* -------------------------------------------------- */
+@media ( min-width: 600px ) {
+	/* HEADER STYLES */
+	header {
+		text-align: left;
+		margin-bottom: 4rem; /* 40px / 10px = 4rem */
+		border-bottom: 0.1rem solid #BBB;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	.brand {
+		font-size: 3rem; /* 30px / 10px = 3rem */
+	}
+
+	.brand-supporting {
+		display: inline-block;
+		color: #BBB;
+		font-weight: normal;
+		font-size: 0.666em; /* 20px / 30px = 0.666em */
+	}
+
+	/* POST STYLES */
+	.post-wrapper {
+		padding: 0 2rem;
+	}
+
+	.post {
+		width: 48%;
+		float: left;
+		margin-bottom: 4%;
+		font-size: 1.5rem; /* 15px / 10px = 1.5rem */
+	}
+
+	.post:nth-child( 2n ) {
+		margin-left: 4%;
+	}
+
+}
